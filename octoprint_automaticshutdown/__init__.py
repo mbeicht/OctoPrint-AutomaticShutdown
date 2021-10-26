@@ -51,7 +51,6 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
             dict(
                 type="settings", 
                 custom_bindings=False,
-                template="automaticshutdown_settings.jinja2"
             )]
         # dict(type="sidebar", icon="reel", template="sidebar.jinja2", template_header="sidebar_header.jinja2"),
 
