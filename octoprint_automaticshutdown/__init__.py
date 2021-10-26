@@ -45,11 +45,19 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
 
     def get_template_configs(self):
         self._logger.info("Automatic Shutdown-mb.get_template_configs")
-        return [dict(type="sidebar",
-            name="Automatic Shutdown",
-            custom_bindings=False,
-            icon="power-off"),
-            dict(type="settings", custom_bindings=False)]
+        return [
+            dict(
+                type="sidebar",
+                name="Automatic Shutdown",
+                custom_bindings=False,
+                icon="power-off",
+                template="automaticshutdown_sidebar.jinja2"
+            ),
+            dict(
+                type="settings", 
+                custom_bindings=False
+            )]
+        # dict(type="sidebar", icon="reel", template="sidebar.jinja2", template_header="sidebar_header.jinja2"),
 
     def get_api_commands(self):
         return dict(enable=[],
