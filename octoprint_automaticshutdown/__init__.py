@@ -177,24 +177,24 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
         self.rememberCheckBox = self._settings.get_boolean(["rememberCheckBox"])
         self.lastCheckBoxValue = self._settings.get_boolean(["lastCheckBoxValue"])
 
-    def get_update_information(self):
-        return dict(
-            automaticshutdown=dict(
-                displayName="Automatic Shutdown",
-                displayVersion=self._plugin_version,
-        
-                # version check: github repository
-#                 type="github_release",
-                type="always_cuttent",
-                user="OctoPrint",
-                repo="OctoPrint-AutomaticShutdown",
-                current=self._plugin_version,
-                current_version=self._plugin_version,
-        
-                # update method: pip w/ dependency links
-                pip="https://github.com/OctoPrint/OctoPrint-AutomaticShutdown/archive/{target_version}.zip"
-            )
-        )
+#     def get_update_information(self):
+#         return dict(
+#             automaticshutdown=dict(
+#                 displayName="Automatic Shutdown",
+#                 displayVersion=self._plugin_version,
+#         
+#                 # version check: github repository
+# #                 type="github_release",
+#                 type="always_cuttent",
+#                 user="OctoPrint",
+#                 repo="OctoPrint-AutomaticShutdown",
+#                 current=self._plugin_version,
+#                 current_version=self._plugin_version,
+#         
+#                 # update method: pip w/ dependency links
+#                 pip="https://github.com/OctoPrint/OctoPrint-AutomaticShutdown/archive/{target_version}.zip"
+#             )
+#         )
 
 __plugin_name__ = "Automatic Shutdown"
 __plugin_pythoncompat__ = ">=2.7,<4"
@@ -203,7 +203,7 @@ def __plugin_load__():
     global __plugin_implementation__
     __plugin_implementation__ = AutomaticshutdownPlugin()
 
-    global __plugin_hooks__
-    __plugin_hooks__ = {
-        "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
-    }
+#     global __plugin_hooks__
+#     __plugin_hooks__ = {
+#         "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
+#     }
