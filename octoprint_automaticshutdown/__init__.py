@@ -44,6 +44,7 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
         return dict(js=["js/automaticshutdown.js"])
 
     def get_template_configs(self):
+        self._logger.info("Automatic Shutdown-mb.get_template_configs")
         return [dict(type="sidebar",
             name="Automatic Shutdown",
             custom_bindings=False,
