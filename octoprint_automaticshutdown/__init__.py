@@ -37,25 +37,21 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
         if self.rememberCheckBox:
             self._automatic_shutdown_enabled = self.lastCheckBoxValue
 
-    def on_after_startup(self):
-        self._logger.info("Automatic Shutdown!")
-            
     def get_assets(self):
         return dict(js=["js/automaticshutdown.js"])
 
     def get_template_configs(self):
-        self._logger.info("Automatic Shutdown-mb.get_template_configs")
         return [
             dict(
                 type="sidebar",
                 name="Automatic Shutdown",
-                custom_bindings=False,
+#                 custom_bindings=False,
                 icon="power-off",
                 template="automaticshutdown_sidebar.jinja2"
             ),
             dict(
                 type="settings", 
-                custom_bindings=False,
+#                 custom_bindings=False,
                 template="automaticshutdown_settings.jinja2"
             )]
         # dict(type="sidebar", icon="reel", template="sidebar.jinja2", template_header="sidebar_header.jinja2"),
@@ -175,9 +171,9 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
 
     def get_settings_defaults(self):
         return dict(
+            lastCheckBoxValue = False
             abortTimeout = 30,
             rememberCheckBox = False,
-            lastCheckBoxValue = False
         )
 
     def on_settings_save(self, data):
@@ -187,33 +183,9 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
         self.rememberCheckBox = self._settings.get_boolean(["rememberCheckBox"])
         self.lastCheckBoxValue = self._settings.get_boolean(["lastCheckBoxValue"])
 
-#     def get_update_information(self):
-#         return dict(
-#             automaticshutdown=dict(
-#                 displayName="Automatic Shutdown",
-#                 displayVersion=self._plugin_version,
-#         
-#                 # version check: github repository
-# #                 type="github_release",
-#                 type="always_cuttent",
-#                 user="OctoPrint",
-#                 repo="OctoPrint-AutomaticShutdown",
-#                 current=self._plugin_version,
-#                 current_version=self._plugin_version,
-#         
-#                 # update method: pip w/ dependency links
-#                 pip="https://github.com/OctoPrint/OctoPrint-AutomaticShutdown/archive/{target_version}.zip"
-#             )
-#         )
-
 __plugin_name__ = "Automatic Shutdown"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
 def __plugin_load__():
     global __plugin_implementation__
     __plugin_implementation__ = AutomaticshutdownPlugin()
-
-#     global __plugin_hooks__
-#     __plugin_hooks__ = {
-#         "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
-#     }
