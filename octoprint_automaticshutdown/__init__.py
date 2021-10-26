@@ -183,10 +183,10 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
         self.lastCheckBoxValue = self._settings.get_boolean(["lastCheckBoxValue"])
 
 __plugin_name__ = "Automatic Shutdown"
+__plugin_version__ = "1.0.0"
 __plugin_pythoncompat__ = ">=3,<4"
 __plugin_identifier__ = "automaticshutdown"
 __plugin_package__ = "octoprint_automaticshutdown"
-__plugin_version__ = "1.0.0"
 
 def __plugin_load__():
     global __plugin_implementation__
