@@ -45,13 +45,12 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
             dict(
                 type="sidebar",
                 name="Automatic Shutdown",
-#                 custom_bindings=False,
-                icon="power-off",
-                template="automaticshutdown_sidebar.jinja2"
+                custom_bindings=False,
+                icon="power-off"
             ),
             dict(
                 type="settings", 
-#                 custom_bindings=False,
+                custom_bindings=False,
                 template="automaticshutdown_settings.jinja2"
             )]
         # dict(type="sidebar", icon="reel", template="sidebar.jinja2", template_header="sidebar_header.jinja2"),
@@ -184,7 +183,10 @@ class AutomaticshutdownPlugin(octoprint.plugin.TemplatePlugin,
         self.lastCheckBoxValue = self._settings.get_boolean(["lastCheckBoxValue"])
 
 __plugin_name__ = "Automatic Shutdown"
-__plugin_pythoncompat__ = ">=2.7,<4"
+__plugin_pythoncompat__ = ">=3,<4"
+__plugin_identifier__ = "automaticshutdown"
+__plugin_package__ = "octoprint_automaticshutdown"
+__plugin_version__ = "1.0.0"
 
 def __plugin_load__():
     global __plugin_implementation__
