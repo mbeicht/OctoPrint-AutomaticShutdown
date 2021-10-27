@@ -104,6 +104,7 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push([
         AutomaticShutdownViewModel,
         ["loginStateViewModel"],
-        document.getElementById("sidebar_plugin_automaticshutdown")
+        ["#sidebar_plugin_automaticshutdown"]
+//        document.getElementById("sidebar_plugin_automaticshutdown")
     ]);
 });
